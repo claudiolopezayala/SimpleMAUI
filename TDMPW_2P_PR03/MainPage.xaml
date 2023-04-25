@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TDMPW_2P_PR03.MainPage">
+
+    <ContentPage.Resources>
+        <Color x:Key="SelectionColor">#444444</Color>   
+        <Color x:Key="lightFont">#d6d6d6</Color>
+        <Color x:Key="DarkFont">#4fd8eb</Color>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout
+        Margin="20,15,20,0"
+        Spacing="40">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".3*"/>
+                <ColumnDefinition Width=".7*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Ingresa el monto"
+                   TextColor="{StaticResource lightFont}"
+                   VerticalOptions="Center"
+                />
+            <Entry x:Name="txtAmount"
+                   Completed="txtAmount_Completed"
+                   Grid.Column="1"
+                   BackgroundColor="{x:StaticResource SelectionColor}"
+                   Keyboard="Numeric"
+                   Placeholder="0.0"
+                   TextColor="{StaticResource lightFont}"
+                   VerticalOptions="Center"/>
+        </Grid>
+
+        <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   BackgroundColor="{x:StaticResource SelectionColor}"
+                   BorderColor="Transparent">
+            <Grid RowSpacing="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Label x:Name="lblTotal"
+                    Text="$0.00"
+                       FontAttributes="Bold"
+                       FontSize="35"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="{x:StaticResource lightFont}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                    />
+
+                <BoxView Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2"
+                         Color="#adadad"
+                         />
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label Text="IVA"
+                           TextColor="{StaticResource lightFont}"
+                        />
+                    <Label x:Name="lblIVA"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource lightFont}"
+                           Text="$0.00"
+                        />
+                </VerticalStackLayout>
+
+
+                <VerticalStackLayout
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label Text="Envio"
+                           TextColor="{StaticResource lightFont}"
+                           Margin="0, 10,0,0"
+                        />
+                    <Label x:Name="lblEnvio"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource lightFont}"
+                           Text="$0.00"
+                        />
+                </VerticalStackLayout>
+
+                
+            </Grid>
+
+
+        </Frame>
+
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".3*"/>
+                <ColumnDefinition Width=".7*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                   Text="Selecciona el IVA"
+                   TextColor="{StaticResource lightFont}"
+                   VerticalOptions="Center"
+                   />
+            <HorizontalStackLayout
+                                   Grid.Column="1"
+                                   HeightRequest="70"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Spacing="10">
+                <Button x:Name="propina10"
+                        Clicked="propina10_Clicked"
+                        Text="0%"
+                        WidthRequest="70"/>
+                <Button x:Name="propina15"
+                        Clicked="propina10_Clicked"
+                        Text="11%"
+                        WidthRequest="70"/>
+                <Button x:Name="propina20"
+                        Clicked="propina10_Clicked"
+                        Text="16%"
+                        WidthRequest="70"/>
+            </HorizontalStackLayout>
+
+        </Grid>
+        <Slider x:Name="sldTip"
+                    Grid.Column="1"
+                    Maximum="16"
+                    Minimum="0"
+                IsEnabled="False"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>
